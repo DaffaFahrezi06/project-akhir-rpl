@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tab Set Calorie</title>
+    <link rel="stylesheet" href="../CSS/limit-desktop.css" media="screen and (min-width: 577px)">
+    <link rel="stylesheet" href="../CSS/limit-mobile.css" media="screen and (max-width: 576px)">
+</head>
+<body>
+    <!--Navbar-->
+    <div id="Taskbar">
+
+        <!--App Title-->
+        <div id="AppTitle">
+            <img src="../Elements/LogoPlaceholder.png" alt="">
+            <div id="AppName">
+                <p class="main">CalorieMate</p>
+                <p class="sub">Hello, <span class="username"></span></p>
+            </div>
+        </div>
+
+        <!--Menu-->
+        <div id="Menu">
+            <a href="home.html" class="text mobileDisable">Home</a>
+            <a href="set_calorie.html" class="text mobileDisable">Limit</a>
+            <a href="insight.html" class="text mobileDisable">Insight</a>
+            <a href="setting.html" class="text mobileDisable">Setting</a>
+            <a href="home.html" class="image desktopDisable"><img src="../Elements/Home.png" alt=""></a>
+            <a href="set_calorie.html" class="image desktopDisable"><img src="../Elements/Limit.png" alt=""></a>
+            <a href="insight.html" class="image desktopDisable"><img src="../Elements/Insight.png" alt=""></a>
+            <a href="setting.html" class="image desktopDisable"><img src="../Elements/Setting.png" alt=""></a>
+        </div>
+
+        <!--Account & Notification Section-->
+        <div class="Account">
+            <img src="../Elements/Profile2.png" alt="" class="toggle" id="Account" onclick="toggleInfo()">
+            <!--
+            <img src="../Elements/Bell.png" alt="" id="Notification">
+            -->
+        </div>
+    </div>
+
+    <div class="app-container">
+
+        <!-- On Mobile Title-->
+        <div class="app-header">
+            <p class="desktopDisable">Set Calorie Limit</p>
+            <img class="desktopDisable toggle" src="../Elements/Profile2.png" alt="" style="width: 27px; height: 27px;" onclick="toggleInfo()">
+        </div>
+
+        <!--Current Calorie Limit-->
+            <div class="up-outbox">
+                <p class="outbox-label">Current Calorie Limit</p>
+                <div class="up-inbox">
+                    <p class="inbox-value">
+                        <span id="current-limit"></span> Calories
+                    </p>
+                </div>
+
+            </div>
+
+            <p class="autoset-head">Automatic Setting</p>
+
+            <div class="input-auto">
+                <p class="input-label">Body Info</p> 
+                    <div class="input-group" id="Age">
+                        <p>Age</p>
+                        <input type="number" id="input-age" class="input-box" placeholder="19">
+                    </div>
+
+                    <div class="input-group" id="Height">
+                        <p>Height (cm)</p>
+                        <input type="number" id="input-height" class="input-box" placeholder="163">
+                    </div>
+                    <div class="input-group" id="Weight">
+                        <p>Weight (kg)</p>
+                        <input type="number" id="input-weight" class="input-box" placeholder="60">
+                    </div>
+                    <div class="input-group" id="Gender">
+                        <p>Gender</p>
+                        <select class="input-box" id="input-gender">
+                            <option value="MALE">Male</option>
+                            <option value="FEMALE">Female</option>
+                        </select>
+                    </div>
+                    <div class="input-group" id="Activity">
+                        <p>Activity <span class="mobileDisable">Level</span></p>
+                        <select class="input-box" id="input-activity">
+                            <option value="SEDENTARY">Sedentary</option>
+                            <option value="LIGHTLY_ACTIVE">Lightly Active</option>
+                            <option value="MODERATELY_ACTIVE">Moderately Active</option>
+                            <option value="VERY_ACTIVE">Very Active</option>
+                            <option value="EXTRA_ACTIVE">Extra Active</option>
+                        </select>
+                    </div>
+                    <div class="input-group" id="Goal">
+                        <p>Goal</p>
+                        <select class="input-box" id="input-goal">
+                            <option value="LOSE_WEIGHT">Lose Weight</option>
+                            <option value="MAINTAIN_WEIGHT">Maintain Weight</option>
+                            <option value="GAIN_WEIGHT">Gain Weight</option>
+                        </select>
+                    </div>
+                <button class="btn-blue">Calculate & Set New</button>
+            </div>
+
+            <p class="manualset-head">Manual Setting</p>
+            
+            <div class="input-manual">
+                <p class="input-label">Set Calories Limit</p>
+                <input type="number" id="manual-input"class="input-box" placeholder="0000" style="margin-bottom: 20px;">
+                <button class="btn-blue">Set</button>
+            </div>
+    </div>
+
+    <!-- Account Info Popup -->
+    <div class="popup" id="Account_Info">
+        <div class="popup-content">
+            <div class="profile-account">
+                <div class="profile-pic" id="id-profile-pic"></div> 
+                <div class="profile-info">
+                    <p id="Profile_Name">username</p>
+                    <p id="Profile_Email">email@email.com</p>
+                </div>
+            </div>
+            <div class="personal-detail">
+                <p style="grid-column: 1 / 1; grid-row: 1 / 1;">Age : <span id="Profile_Age">N/A</span></p>
+                <p style="grid-column: 2 / 2; grid-row: 1 / 1;">height : <span id="Profile_Height">N/A</span> CM</p>
+                <p style="grid-column: 2 / 2; grid-row: 2 / 2;">Weight : <span id="Profile_Weight">N/A</span> Kg</p>
+                <p style="grid-column: 1 / 1; grid-row: 2 / 2;">Gender : <span id="Profile_Gender" >Male</span></p>
+                <p style="grid-area: 3 / 1 / span 1 / span 2;"> <span id="Profile_ActivityLevel">N/A</span> & <span id="Profile_Goal">N/A</span></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../JavaScript/config.js"></script>
+    <script src="../JavaScript/data.js"></script>
+    <script src="../JavaScript/dom.js"></script>
+    <script src="../JavaScript/profile.js"></script>
+    <script src="../JavaScript/limit2.js"></script>
+    <script src="../JavaScript/accountInfo.js"></script>
+</body>
+</html>

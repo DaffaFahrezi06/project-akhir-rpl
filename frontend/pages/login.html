@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="../CSS/login-desktop.css" media="screen and (min-width: 577px)">
+    <link rel="stylesheet" href="../CSS/login-mobile.css" media="screen and (max-width: 576px)">
+</head>
+<body>
+    <div class="background desktop-disable">
+        <img src="../Image/Food2.jpg" alt="">
+    </div>
+    <div id="Signup">
+        <div id="Title">
+            <p id="TitleText">Log In</p>
+        </div>
+        <form action="home.html" id="loginForm">
+            <div id="Textbar">
+                <input type="text" placeholder="Email" minlength="3" maxlength="28" required id="Email"><br>
+                <input type="password" placeholder="Enter your password" minlength="8" maxlength="21" required id="Password">
+                <div id="Remember">
+                    <input type="checkbox" id="RememberCheck">
+                    <p id="RememberMe">Remember Me</p>
+                </div>
+            </div>
+            <div id="SignManual">
+                <button id="Manual">Login</button>
+            </div>
+        </form>
+        <div id="Login">
+            <a href="signup.html" >Don't have an account yet? Sign Up</a>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../JavaScript/config.js"></script>
+    <script src="../JavaScript/login.js"></script>
+</body>
+</html>

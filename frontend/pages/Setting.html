@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tab Setting</title>
+    <link rel="stylesheet" href="../CSS/setting-desktop.css" media="screen and (min-width: 577px)">
+    <link rel="stylesheet" href="../CSS/setting-mobile.css" media="screen and (max-width: 576px)">
+</head>
+<body>
+    <!--Navbar-->
+    <div id="Taskbar">
+
+        <!--App Title-->
+        <div id="AppTitle">
+            <img src="../Elements/LogoPlaceholder.png" alt="">
+            <div id="AppName">
+                <p class="main">CalorieMate</p>
+                <p class="sub">Hello, <span class="username"></span></p>
+            </div>
+        </div>
+
+        <!--Menu-->
+        <div id="Menu">
+            <a href="home.html" class="text mobileDisable">Home</a>
+            <a href="set_calorie.html" class="text mobileDisable">Limit</a>
+            <a href="insight.html" class="text mobileDisable">Insight</a>
+            <a href="setting.html" class="text mobileDisable">Setting</a>
+            <a href="home.html" class="image desktopDisable"><img src="../Elements/Home.png" alt=""></a>
+            <a href="set_calorie.html" class="image desktopDisable"><img src="../Elements/Limit.png" alt=""></a>
+            <a href="insight.html" class="image desktopDisable"><img src="../Elements/Insight.png" alt=""></a>
+            <a href="setting.html" class="image desktopDisable"><img src="../Elements/Setting.png" alt=""></a>
+        </div>
+
+        <!--Account & Notification Section-->
+        <div class="Account">
+            <img src="../Elements/Profile2.png" alt="" class="toggle" id="Account">
+            <!--
+            <img src="../Elements/Bell.png" alt="" id="Notification">
+            -->
+        </div>
+    </div>
+
+    <div class="app-container">
+        <div class="app-header">
+            <p class="desktopDisable">Setting</p>
+            <img class="desktopDisable toggle" src="../Elements/Profile2.png" alt="" style="width: 27px; height: 27px;" onclick="toggleInfo()">
+        </div>
+
+        <div class="card-container">
+            
+            <div class="profile-section">
+                <div class="profile-account">
+                    <div class="profile-pic" id="id-profile-pic"></div> 
+                    <div class="profile-info">
+                        <p id="Profile_Name">username</p>
+                        <p id="Profile_Email">email@email.com</p>
+                    </div>
+                </div>
+                <div class="personal-detail mobileDisable">
+                    <p>Age : <span id="Profile_Age">N/A</span></p>
+                    <p>height : <span id="Profile_Height">N/A</span> CM</p>
+                    <p>Weight : <span id="Profile_Weight">N/A</span> Kg</p>
+                    <p>Gender : <span id="Profile_Gender">Male</span></p>
+                    <p>Activity Level : <span id="Profile_ActivityLevel">N/A</span></p>
+                    <p>Goal : <span id="Profile_Goal">N/A</span></p>
+                </div>
+                <button class="btn-logout mobileDisable">Log Out</button>
+            </div>
+
+            <div class="account-setting">
+                <p class="section-title">Account Setting</p>
+                <div class="menu-item" id="Username_Setting">
+                    <p>Change Username</p>
+                </div>
+                <div class="menu-item" id="Password_Setting">
+                    <p>Reset Password</p>
+                </div>
+                <div class="menu-item" id="Delete_Account_Setting">
+                    <p>Delete Account</p>
+                </div>
+            </div>
+
+            <div class="app-setting">
+                <p class="section-title">App Setting</p>
+                <div class="menu-item" id="Disable_Notification_1">
+                    <p></p>
+                </div>
+                <div class="menu-item" id="Disable_Notification_2">
+                    <p></p>
+                </div>
+                <div class="menu-item" id="Setting_3">
+                    <p></p>
+                </div>
+                <button class="btn-logout desktopDisable">Log Out</button>
+            </div>
+        </div>
+    </div>
+
+    <!--Question Popup-->
+    <div class="popup" id="Logout_Popup">
+        <div class="popup-content">
+            <p class="popup-text">Are you sure you want to logout?</p>
+            <div class="popup-buttons">
+                <button class="btn-cancel">Cancel</button>
+                <button class="btn-confirm">Logout</button>
+            </div>
+        </div>
+    </div>
+    <div class="popup" id="Change_Username_Popup">
+        <div class="popup-content">
+            <p class="popup-text">Are you sure you want to change your username?</p>
+            <div class="popup-buttons">
+                <button class="btn-cancel">Cancel</button>
+                <button class="btn-confirm">Change</button>
+            </div>
+        </div>
+    </div>
+    <div class="popup" id="Change_Password_Popup">
+        <div class="popup-content">
+            <p class="popup-text">Are you sure you want to change your password?</p>
+            <div class="popup-buttons">
+                <button class="btn-cancel">Cancel</button>
+                <button class="btn-confirm">Change</button>
+            </div>
+        </div>
+    </div>
+    <div class="popup" id="Delete_Account_Popup">
+        <div class="popup-content">
+            <p class="popup-text">Are you sure you want to delete your account?</p>
+            <div class="popup-buttons">
+                <button class="btn-cancel">Cancel</button>
+                <button class="btn-confirm">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <!--input Popup-->
+    <div class="popup" id="Username_Input">
+        <div class="popup-content">
+            <p class="popup-text" id="input-popup-text">Enter new username</p>
+            <input type="text" id="New_Username" class="popup-input" minlength="3" maxlength="28" required>
+            <div class="popup-buttons">
+                <button class="btn-cancel">Cancel</button>
+                <button class="btn-confirm">Confirm</button>
+            </div>
+        </div>
+    </div>
+    <div class="popup " id="Password_Input">
+        <div class="popup-content">
+            <p class="popup-text" id="input-popup-text">Enter new password</p>
+            <input type="text" id="New_Password" class="popup-input" minlength="8" maxlength="21" required>
+            <div class="popup-buttons">
+                <button class="btn-cancel">Cancel</button>
+                <button class="btn-confirm">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../JavaScript/config.js"></script>
+    <script src="../JavaScript/dom.js"></script>
+    <script src="../JavaScript/data.js"></script>
+    <script src="../JavaScript/setting.js"></script>
+    <script src="../JavaScript/profile.js"></script>
+    <script src="../JavaScript/accountInfo.js"></script>
+</body>
+</html>

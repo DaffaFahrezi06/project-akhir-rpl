@@ -1,0 +1,50 @@
+package com.example.calorietracker.controller;
+
+import com.example.calorietracker.model.FoodEntry;
+import com.example.calorietracker.repository.FoodEntryRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import java.util.List;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.DayOfWeek;
+
+@RestController
+@RequestMapping("/api/food-entries")
+@CrossOrigin(origins = "*")
+public class FoodEntryController {
+
+    @Autowired
+    private FoodEntryRepository repo;
+
+    @PostMapping
+    public FoodEntry addFood(@RequestBody FoodEntry entry) {
+        return repo.save(entry);
+    }
+
+    @GetMapping("/user/{userId}/today")
+    public List<FoodEntry> getTodayEntries(@PathVariable Long userId) {
+        LocalDateTime start = LocalDate.now().atStartOfDay();
+        LocalDateTime end = LocalDateTime.now(); 
+        
+        return repo.findByUserIdAndEntryDateBetween(userId, start, end);
+    }
+    
+    @GetMapping("/user/{userId}/weekly")
+    public List<FoodEntry> getWeeklyEntries(@PathVariable Long userId) {
+    	LocalDate today = LocalDate.now();
+        LocalDateTime start = today.with(DayOfWeek.MONDAY).atStartOfDay();
+        LocalDateTime end = LocalDateTime.now(); 
+        
+        return repo.findByUserIdAndEntryDateBetween(userId, start, end);
+    }
+    
+    @GetMapping("/user/{userId}/monthly")
+    public List<FoodEntry> getMonthlyEntries(@PathVariable Long userId) {
+    	LocalDate today = LocalDate.now();
+    	LocalDateTime start = today.withDayOfMonth(1).atStartOfDay();
+        LocalDateTime end = LocalDateTime.now(); 
+        
+        return repo.findByUserIdAndEntryDateBetween(userId, start, end);
+    }
+}

@@ -1,0 +1,6 @@
+package com.example.calorietracker.repository;
+
+@Repository
+public interface FoodEntryRepository extends JpaRepository<FoodEntry, Long> {
+    List<FoodEntry> findByUserId(Long userId);
+}

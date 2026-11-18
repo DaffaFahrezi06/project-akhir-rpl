@@ -1,0 +1,5 @@
+package com.example.calorietracker.controller;
+
+public class FoodEntryController {
+
+}

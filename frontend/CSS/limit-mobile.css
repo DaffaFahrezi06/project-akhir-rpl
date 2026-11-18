@@ -1,0 +1,252 @@
+a, p, button {
+    color: #ffffff; 
+    font-family: Helvetica;  font-weight: bold;
+}
+
+.desktopDisable > p {
+    align-self: flex-start;
+}
+
+/* Hide Desktop-Only Elements */
+#AppTitle, .Account,
+#Menu > .text, .mobileDisable {
+    display: none;
+}
+
+/* ---------- Navigation Bar ---------- */
+#Taskbar {
+    display: flex; flex-direction: row; align-items: center; justify-content: space-evenly;
+    width: clamp(360px, 100vw, 100%); height: 60px;
+    background-color: #3B89FF;
+    position: fixed;
+    bottom: 0;
+    z-index: 1;
+}
+
+#Menu {
+    display: flex; flex-direction: row; justify-content: space-evenly;
+    width: 100%;
+}
+
+#Menu > a > img {
+    width: 32.5px; aspect-ratio: 1 / 1;
+}
+
+/**/
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+
+body { background-color: #121212; color: white; display: flex; justify-content: center; min-height: 100vh; }
+
+.app-container {
+    width: 90vw; max-width: 480px;
+    position: relative; padding-bottom: 80px;
+}
+
+.app-header { 
+    display: flex; justify-content: space-between;
+    font-size: 30px;
+    margin-top: 15px; margin-bottom: 15px; 
+}
+
+.up-outbox {
+    background-color: #1E1E1E; 
+    width: 100%;
+    height: auto; 
+    border-radius: 15px; 
+    text-align: center; 
+    padding: 20px; padding-top: 10px;
+    margin-bottom: 10px; 
+}
+
+.outbox-label { 
+    color: #fff;       
+    font-size: 20px;  
+    margin-bottom: 10px; 
+}
+
+.up-inbox {
+    background-color: #383838; 
+    border-radius: 15px;
+    margin: 0; padding: 32px 0; 
+}
+
+.inbox-value {
+    color: white; font-size: 25px;
+}
+
+.autoset-head {
+    grid-area: 3 / 1 / span 1 / span 1;
+    font-size: 25px; font-weight: bold;
+    margin-left: 10px; margin-top: 10px; margin-bottom: 10px;
+}
+
+.manualset-head {
+    grid-area: 3 / 2 / span 1 / span 1;
+    font-size: 25px; font-weight: bold;
+    margin-left: 10px; margin-top: 10px; margin-bottom: 10px;
+}
+
+/**/
+.input-auto {
+    grid-area: 4 / 1 / span 1 / span 1; grid-template-columns: repeat(2, 50%); grid-auto-rows: min-content;
+    display: grid; 
+    background-color: #1E1E1E;
+    width: auto;
+    border-radius: 15px;
+}
+
+.input-auto > .input-label {
+    grid-area: 1 / 1 / span 1 / span 2;
+}
+
+.input-auto .input-box {
+    width: auto;
+    background-color: #383838;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+    outline: none; 
+}
+
+#Age {
+    grid-area: 2 / 1 / span 1 / span 1;
+    margin-left: 20px; margin-right: 10px;
+}
+
+#Height {
+    grid-area: 2 / 2 / span 1 / span 1;
+    margin-left: 10px; margin-right: 20px;
+}
+
+#Weight {
+    grid-area: 3 / 1 / span 1 / span 1;
+    margin-left: 20px; margin-right: 10px;
+}
+
+#Gender {
+    grid-area: 3 / 2 / span 1 / span 1;
+    margin-left: 10px; margin-right: 20px;
+}
+
+#Activity {
+    grid-area: 4 / 1 / span 1 / span 1;
+    margin-left: 20px; margin-right: 10px;
+}
+
+#Goal {
+    grid-area: 4 / 2 / span 1 / span 1;
+    margin-left: 10px; margin-right: 20px;
+}
+
+.input-auto .btn-blue {
+    grid-area: 5 / 1 / span 1 / span 2;
+}
+
+.input-manual {
+    grid-area: 4 / 2 / span 1 / span 1;
+    display: flex; flex-direction: column; align-items: center; justify-content: space-between;
+    background-color: #1E1E1E;
+    width: auto;
+    height: min-content;
+    border-radius: 15px;
+}
+
+.input-label {
+    text-align: center; 
+    color: white;
+    margin-top: 15px ; margin-bottom: 5px;
+    font-size: 25px;
+}
+
+.input-group {
+    width: auto;            
+    display: flex; flex-direction: column; 
+}
+
+.input-group p {
+    color: #ffffff;
+    font-size: 20px;
+    margin-top: 8px; margin-bottom: 5px; margin-left: 10px;
+}
+
+.input-manual .input-box {
+    width: calc(100% - 70px);
+    background-color: #383838;
+    border: none;
+    padding: 12px;
+    margin-top: 25px;
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+    outline: none; 
+}
+
+.btn-blue {
+    width: 75%;
+    height: 45px;
+    padding: 12px;
+    background-color: #448AFF;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px; margin-bottom: 20px;
+    justify-self: center;
+}
+
+/* Account Info Popup */
+.popup {
+    background-color: #1E1E1E;
+    position: absolute; top: 60px; right: 25px;
+    display: flex; align-items: center; justify-content: center;
+    z-index: 2;
+    padding: 20px; 
+    display: none;
+    box-shadow: #121212 0px 4px 12px;
+}
+
+.popup.active {
+    display: flex;
+}
+
+.popup-content {
+    gap: 15px;
+    width: fit-content; height: fit-content;
+    display: flex; flex-direction: column; align-items: flex-start;
+    font-size: 13px; font-weight: bold;
+}
+
+.popup-content p {
+    margin: 0;
+}
+
+.profile-account {
+    grid-area: 1 / 1 / span 1 / span 2;
+    display: flex; align-items: center;
+    width: calc(90%);
+}
+
+.profile-pic {
+    width: 60px; aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background-size: cover; background-position: center;
+    margin-right: 15px;
+}
+
+.personal-detail {
+    display: grid;
+    grid-template-columns: repeat(2, 57%);
+    grid-template-rows: repeat(3, auto);
+    gap: 13px;
+}
+
+#Profile_Name { 
+    font-size: 12px; margin-top: 0; margin-bottom: 4px; 
+}
+
+#Profile_Email { 
+    font-size: 12px; color: #aaa; margin-bottom: 0;
+}

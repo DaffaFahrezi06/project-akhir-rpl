@@ -1,0 +1,92 @@
+body {
+    width: clamp(1080px, 100vw, 1920px);
+    background-color: #121212;
+    background-image: url("../Image/Food1.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: 50% 0%
+}
+
+.desktop-disable { display: none; }
+
+#Signup {
+    display: flex; flex-direction: column; align-items: center; justify-content: space-around;
+    width: 43%; height: clamp(720px, 100vh, 1080px);
+    background-color: #121212;
+    top: 0; right: 0;
+    position: fixed;
+    padding: 1%;
+}
+
+#Remember {
+    display: flex; flex: row; align-items: baseline; justify-content: flex-start;
+    width: 33.7vw;
+    color: #ffffff; font-size: 1vw;
+    padding-left: 5%;
+}
+
+#RememberCheck {
+    appearance: none;
+    width: 1vw; height: 1vw;
+    border: solid 0.15vw #3B89FF; border-radius: 0.2vw;
+    accent-color: #3B89FF;
+    cursor: pointer;
+}
+
+#RememberCheck:active {
+    background-color: #3B89FF;
+}
+
+p, #RememberMe, #Login {
+    font-family: Helvetica;
+    color: #8E8E8E;
+}
+
+#TitleText {
+    color: #ffffff; font-size: 2.6vw ; font-weight: bolder;
+}
+
+input[type="text"], input[type="password"] {
+    width: 33.7vw; height: 50px;
+    background-color: #1D1D1D;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none; border-radius: 10px;
+    color: #ffffff; font-size: 1.2vw ;
+}
+
+button {
+    width: 30.7vw; height: 60px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none; border-radius: 20px;
+    font-size: 1vw ; font-weight: bolder;
+}
+
+#Manual {
+    background-color: #3B89FF;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+#Manual:active {
+    background-color: #3b89ffce;
+    color: #ffffffce;
+}
+
+#Textbar  {
+    display: flex; flex-direction: column; align-items: center; justify-content: space-between;
+}
+
+::placeholder{
+    color: #5B5B5B;
+}
+
+#Login a, #Login a:visited{
+    color: #5B5B5B;; font-size: 25px; text-decoration: none;
+}
+
+#loginForm {
+    display: flex; flex-direction: column; align-items: center;
+}

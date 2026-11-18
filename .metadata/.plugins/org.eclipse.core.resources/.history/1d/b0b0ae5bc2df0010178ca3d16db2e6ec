@@ -1,0 +1,20 @@
+package com.example.calorietracker.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import com.example.calorietracker.model.CalorieLog;
+import java.util.List;
+
+public interface CalorieLogRepository extends JpaRepository<CalorieLog, Long> {
+	
+	
+    @Query("""
+        SELECT COALESCE(SUM(c.calories), 0)
+        FROM CalorieLog c
+        WHERE c.user.id = :userId
+    """)
+    int sumCaloriesByUser(@Param("userId") Long userId); 
+    
+    List<CalorieLog> findByUserId(Long userId);
+}

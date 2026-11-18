@@ -1,0 +1,26 @@
+package com.example.calorietracker.controller;
+
+import com.example.calorietracker.model.FoodEntry;
+import com.example.calorietracker.repository.FoodEntryRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/food-entries")
+@CrossOrigin(origins = "*") // Penting agar JavaScript bisa akses
+public class FoodEntryController {
+
+    @Autowired
+    private FoodEntryRepository repo;
+
+    @PostMapping
+    public FoodEntry addFood(@RequestBody FoodEntry entry) {
+        return repo.save(entry);
+    }
+
+    @GetMapping("/user/{userId}")
+    public List<FoodEntry> getHistory(@PathVariable Long userId) {
+        return repo.findByUserId(userId);
+    }
+}

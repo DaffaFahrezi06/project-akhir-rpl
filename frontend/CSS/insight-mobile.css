@@ -1,0 +1,177 @@
+#AppTitle, .Account, canvas, #Content > div > #Calorie > .amount, #Menu > .text, .mobileDisable, #Hydration {
+    display: none;
+}
+
+a, p, button {
+    color: #ffffff;
+    font-family: Helvetica; font-weight: bold;
+}
+
+/* Hide Desktop-Only Elements */
+#AppTitle, .Account, canvas, #Calorie > .amount, 
+#Menu > .text, .mobileDisable, #Hydration {
+    display: none;
+}
+
+/* ---------- Navigation Bar ---------- */
+#Taskbar {
+    display: flex; flex-direction: row; align-items: center; justify-content: space-evenly;
+    width: clamp(360px, 100vw, 100%); height: 60px;
+    background-color: #3B89FF;
+    position: fixed;
+    bottom: 0;
+    z-index: 1;
+}
+
+#Menu {
+    display: flex; flex-direction: row; justify-content: space-evenly;
+    width: 100%;
+}
+
+#Menu > a > img {
+    width: 32.5px; aspect-ratio: 1 / 1;
+}
+       
+/**/   
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+        
+body { background-color: #121212; color: white; display: flex; justify-content: center; min-height: 100vh; }
+
+/* Layout */
+.app-container {
+    display: grid; grid-template-columns: repeat(2, 50%); grid-auto-rows: min-content;
+    width: 90vw; max-width: 480px;
+    position: relative; padding-bottom: 80px;
+}
+
+.app-header { 
+    grid-area: 1 / 1 / span 1 / span 2;
+    display: flex; justify-content: space-between;
+    font-size: 30px;
+    margin-top: 15px; margin-bottom: 10px;
+}
+
+.fa-bell { font-size: 1.5rem; color: #fff; cursor: pointer;}
+
+/* Statistic & Graph */
+.stats-box {
+    display: flex; flex-direction: column; align-items: center;
+    width: auto; height: 100px; 
+    border-radius: 15px;
+    background-color: #1E1E1E;
+    text-align: center; 
+    margin: 7.5px;
+}
+
+#Daily {
+    grid-area: 2 / 1 / span 1 / span 1;
+}
+
+#Weekly {
+    grid-area: 2 / 2 / span 1 / span 1;
+}
+
+.stats-label { 
+    color: #ffffff; 
+    font-size: 17.5px; 
+    margin-top: 10px;
+}
+
+.stats-value { 
+    font-size: 25px; 
+    margin: auto;
+}
+
+.graph-container {
+    grid-area: 3 / 1 / span 1 / span 2; 
+    margin-top: 7.5px; margin-bottom: 20px; border-radius: 15px;
+    background-color: #1E1E1E; text-align: center;
+    min-height: 150px; 
+}
+
+.graph-container > p {
+    font-size: 25px;
+    margin-top: 10px;
+}
+
+.chartContainer {
+    width: auto;
+    margin: 20px; margin-top: 10px; margin-bottom: 10px;
+}
+
+/* Food History */
+.history-set {
+    grid-area: 4 / 1 / span 1 / span 2;
+}
+
+.history-set > p {
+    font-size: 25px;
+    margin-bottom: 0;
+}
+
+.history-item {
+    display: flex; justify-content: space-between;
+    background-color: #232323;
+    border-radius: 10px; 
+    padding-top: 10px;  padding-bottom: 10px; padding-left: 10px; padding-right: 10px;
+    margin-top: 10px; margin-bottom: 10px;
+}
+
+.history-item:last-child { border-bottom: none; }
+
+.date-text { font-weight: bold; color: #ddd; }
+.cal-text { font-weight: bold; }
+
+/* Account Info Popup */
+.popup {
+    background-color: #1E1E1E;
+    position: absolute; top: 60px; right: 25px;
+    display: flex; align-items: center; justify-content: center;
+    z-index: 2;
+    padding: 20px; 
+    display: none;
+    box-shadow: #121212 0px 4px 12px;
+}
+
+.popup.active {
+    display: flex;
+}
+
+.popup-content {
+    gap: 15px;
+    width: fit-content; height: fit-content;
+    display: flex; flex-direction: column; align-items: flex-start;
+    font-size: 13px; font-weight: bold;
+}
+
+.popup-content p {
+    margin: 0;
+}
+
+.profile-account {
+    grid-area: 1 / 1 / span 1 / span 2;
+    display: flex; align-items: center;
+    width: calc(90%);
+}
+
+.profile-pic {
+    width: 60px; aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background-size: cover; background-position: center;
+    margin-right: 15px;
+}
+
+.personal-detail {
+    display: grid;
+    grid-template-columns: repeat(2, 57%);
+    grid-template-rows: repeat(3, auto);
+    gap: 13px;
+}
+
+#Profile_Name { 
+    font-size: 12px; margin-top: 0; margin-bottom: 4px; 
+}
+
+#Profile_Email { 
+    font-size: 12px; color: #aaa; margin-bottom: 0;
+}

@@ -1,0 +1,391 @@
+body {
+    display: flex; flex-direction: column; align-items: center;
+    background-color: #121212;
+    margin: 0;
+    padding: 0;
+}
+
+a, p, button {
+    color: #ffffff; 
+    font-family: Helvetica;  font-weight: bold;
+}
+
+.desktopDisable > p {
+    align-self: flex-start;
+}
+
+/* Hide Desktop-Only Elements */
+#AppTitle, .Account, canvas, #Calorie > .amount, 
+#Menu > .text, .mobileDisable {
+    display: none;
+}
+
+/* ---------- Navigation Bar ---------- */
+#Taskbar {
+    display: flex; flex-direction: row; align-items: center; justify-content: space-evenly;
+    width: clamp(360px, 100vw, 100%); height: 60px;
+    background-color: #3B89FF;
+    position: fixed;
+    bottom: 0;
+    z-index: 10;
+}
+
+#Menu {
+    display: flex; flex-direction: row; justify-content: space-evenly;
+    width: 100%;
+}
+
+#Menu img {
+    width: 32.5px; aspect-ratio: 1 / 1;
+}
+
+/* ---------- Content Layout ---------- */
+#Content {
+    display: grid; grid-template-columns: repeat(3, 30vw); grid-auto-rows: auto;
+    width: 90vw;
+    margin-bottom: 70px;
+}
+
+#Content > div {
+    width: auto;
+    background-color: #1D1D1D;
+    border-radius: 10px;
+    margin: 7.5px;
+    padding: 0;
+}
+
+/* Title Inside Cards */
+.title {
+    display: flex; flex-direction: row; display: flex; justify-content: space-between;
+    height: fit-content;
+    margin: 8px; margin-bottom: 5px;
+}
+
+.nutrient .title p {
+    font-size: 12px;
+    margin: 0;
+}
+
+#Calorie .title p {
+    font-size: 14px;
+    margin: 0;    
+}
+
+/* Charts */
+.chartContainer {
+    width: 65%; aspect-ratio: 1 / 1;
+    margin: 0 auto;
+}
+
+#Calorie > .chartContainer {
+    width: 75%; aspect-ratio: 1 / 1;
+    margin: 0 auto;
+}
+
+/* Force Square Blocks */
+#Content > .nutrient > div, 
+#Calorie, 
+::not(.title) {
+    aspect-ratio: 1 / 1;
+}
+
+/* ---------- Grid Placement ---------- */
+#Calorie { grid-area: 1 / 1 / span 2 / span 2; }
+#Carb { grid-area: 1 / 3 / span 1 / span 1; }
+#Fat { grid-area: 2 / 3 / span 1 / span 1; }
+#Sugar { grid-area: 3 / 3 / span 1 / span 1; }
+#Protein { grid-area: 3 / 2 / span 1 / span 1; }
+#Reminder { grid-area: 3 / 1 / span 1 / span 1; }
+#Hydration { grid-area: 4 / 1 / span 1 / span 3; }
+#Broad {grid-area: 5 / 1 / span 1 / span 3;}
+
+#Reminder > p { margin: 8px; font-size: 12px;}
+
+#Reminder #Eat { font-size: 16px; text-align: center; align-self: center;}
+
+/* Hydration */
+#Hydration {
+    display: flex; justify-content: center; align-items: center;
+    width: 90vw; height: 12.5vw;
+    font-size: 14px; text-align: center;
+}
+
+#Hydration > p {position: absolute; align-self: center;}
+
+#Hydration > button {
+    align-self: center;
+    background-color: #3B89FF;
+    border: none; border-radius: 5px; box-shadow: none;
+    margin-left: auto; margin-right: 15px; 
+    height: 50%; aspect-ratio: 1 / 1; 
+}
+
+/* Broad Section */
+#Content > #Broad {
+    width: 90vw; height: fit-content;
+    background: none;
+    font-size: 24px;
+}
+
+#Broad > p {
+    margin-top: 5px; margin-bottom: 15px;
+}
+
+#Broad > .layout {
+    display: flex; flex-direction: column; align-items: center; justify-content: space-around;
+    width: 100%; height: fit-content;
+}
+
+#Broad > .title {
+    justify-content: space-between;
+    height: fit-content;
+    margin: 15px;
+}
+
+.title > p { margin: 0px; }
+
+/* ---------- User Input Components ---------- */
+.userInput {
+    width: calc(100% - 40px);
+    display: flex; flex-direction: row; justify-content: space-between;
+    margin-top: 10px; margin-left: 10px; margin-right: 10px;
+}
+
+.userInput > .food {
+    display: flex; flex-direction: row;
+    width: 60%; height: 35px;
+    background-color: #444547;
+    border-radius: 10px;
+}
+
+.userInput .amount {
+    width: 30%;
+    background-color: #444547;
+    border: 0; border-radius: 10px;
+    padding-left: 10px; padding-right: 10px;
+    color: white; font-weight: bold;
+}
+
+#FoodSearch, #FoodName {
+    width: 82%; height: auto;
+    background-color: #444547;
+    border: 0; border-radius: 10px; outline: none; box-shadow: none;
+    margin-left: 3%;
+    color: white; font-weight: bold;
+}
+
+/* ---------- Food Selection ---------- */
+#FoodList {
+    height: 100%; aspect-ratio: 1 / 1;
+    background-color: #444547;
+    border: 0; border-radius: 10px;
+    margin: 0;
+}
+
+#FoodList:active { background-color: #3b89ffdc; }
+
+#FoodList > img {
+    width: 35%; aspect-ratio: 1 / 1;
+    margin: 0 auto;
+}
+
+/* ---------- Buttons ---------- */
+.add {
+    width: 70%; height: 40px;
+    background-color: #3B89FF;
+    border: 0; border-radius: 15px;
+    color: #ffffff;
+    margin-top: 20px; margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.add:active, #Hydration > button:active { background-color: #3b89ff6e; }
+
+/* ---------- Add Food Forms ---------- */
+#AddFood, #AddFoodManual {
+    background-color: #1D1D1D;
+    width: 90vw;
+    border-radius: 10px;
+    margin: 0 auto;
+    font-size: 25px;
+}
+
+/* Auto Add */
+#AddFood {
+    grid-area: 1 / 1 / span 1 / span 1;
+    display: flex; flex-direction: column; align-items: center;
+    height: auto;
+}
+
+/* Manual Add */
+#AddFoodManual {
+    grid-area: 2 / 1 / span 2 / span 1;
+    display: flex; flex-direction: column; align-items: center;
+    height: fit-content;
+    margin-top: 20px;
+}
+
+#AddFoodManual .userInput {
+    flex-wrap: wrap; justify-content: space-between;
+    width: calc(100% - 20px); height: auto;
+}
+
+#AddFoodManual .nutrient {
+    display: grid; grid-template-columns: repeat(4, 25%); grid-auto-rows: auto;
+    place-items: center;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+#AddFoodManual .nutrient > p {
+    margin-top: 5px; margin-bottom: 5px;
+    place-self: start; align-self: center;
+}
+
+#AddFoodManual .nutrient input {
+    width: auto;
+    margin-top: 5px; margin-bottom: 5px;
+    padding-left: 10px; padding-right: 10px;
+    place-self: end; align-self: center;
+    border: 0;
+}
+
+#AddFoodManual .nutrient .amount {
+    width: 90%; height: 30px;
+    background-color: #444547;
+    border-radius: 10px; outline: none; box-shadow: none;
+}
+
+/* ---------- Placeholder Styling ---------- */
+::placeholder {
+    color: #5B5B5B;
+    font-size: 15px; font-weight: bold; 
+}
+
+/* Account Info Popup */
+.popup {
+    background-color: #1E1E1E;
+    position: absolute; top: 60px; right: 25px;
+    display: flex; align-items: center; justify-content: center;
+    z-index: 2;
+    padding: 20px; 
+    display: none;
+    box-shadow: #121212 0px 4px 12px;
+}
+
+.active, #Hydration_Input.active {
+    display: flex;
+}
+
+.popup-content {
+    gap: 15px;
+    width: fit-content; height: fit-content;
+    display: flex; flex-direction: column; align-items: flex-start;
+    font-size: 13px; font-weight: bold;
+}
+
+.popup-content p {
+    margin: 0;
+}
+
+.profile-account {
+    grid-area: 1 / 1 / span 1 / span 2;
+    display: flex; align-items: center;
+    width: calc(90%);
+}
+
+.profile-pic {
+    width: 60px; aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background-size: cover; background-position: center;
+    margin-right: 15px;
+}
+
+.personal-detail {
+    display: grid;
+    grid-template-columns: repeat(2, 57%);
+    grid-template-rows: repeat(3, auto);
+    gap: 13px;
+}
+
+#Profile_Name { 
+    font-size: 12px; margin-top: 0; margin-bottom: 4px; 
+}
+
+#Profile_Email { 
+    font-size: 12px; color: #aaa; margin-bottom: 0;
+}
+
+/* Hydration Input Popup */
+#Hydration_Input {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex; align-items: center; justify-content: center;
+    padding: 0;
+    z-index: 2;
+    display: none;
+}
+
+#Hydration_Input .popup-content {
+    background-color: #1E1E1E;
+    padding: 30px; gap: 30px;
+    border-radius: 15px; box-shadow: #121212 0px 4px 12px;
+    width: 75%; height: fit-content;
+    display: flex; flex-direction: column; align-items: center;
+    font-size: 1.3rem;
+}
+
+#Hydration_Input .popup-content p { margin: 0; }
+
+#Hydration_Input .popup-input {
+    width: auto;
+    padding: 12px;
+    border: none; border-radius: 8px; outline: none;
+    background-color: #383838;
+    color: white; font-size: 1rem;
+}
+
+.btn-cancel, .btn-confirm {
+    width: 100px; height: 35px;
+    margin-left: 10px; margin-right: 10px;
+    border: none; border-radius: 8px; font-weight: bold; font-size: 1rem; cursor: pointer;
+}
+
+#Hydration_Input .btn-confirm { background-color: #3B89FF; color: white; }
+#Hydration_Input .btn-cancel { background-color: #D32F2F; color: white; }
+
+/* Kotak Suggestion Dropdown */
+.suggestion-list {
+    display: none; /* Default sembunyi */
+    position: absolute;
+    top: 100%; /* Muncul persis di bawah input */
+    left: 0;
+    width: 100%;
+    max-height: 250px; /* Maksimal tinggi, sisanya scroll */
+    overflow-y: auto;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+/* Item di dalam list */
+.suggestion-item {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+    color: #333;
+    transition: background 0.2s;
+}
+
+.suggestion-item:hover {
+    background-color: #f0f8ff; /* Biru muda saat di-hover */
+}
+
+.suggestion-item small {
+    display: block;
+    color: #888;
+    font-size: 11px;
+}

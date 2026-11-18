@@ -1,0 +1,53 @@
+package com.example.calorietracker.controller;
+
+import com.example.calorietracker.model.User;
+import com.example.calorietracker.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/api/users")
+@CrossOrigin("*") // Supaya bisa diakses dari Frontend (JS)
+public class UserController {
+
+    @Autowired
+    private UserRepository userRepository;
+
+    // 1. Ambil data User Lengkap (untuk Dashboard/data.js)
+    @GetMapping("/{id}")
+    public ResponseEntity<User> getUser(@PathVariable Long id) {
+        return userRepository.findById(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+    
+    // 2. Update Goal Kalori & Nutrisi (untuk limit2.js)
+    @PutMapping("/{id}/goals")
+    public ResponseEntity<User> updateGoals(@PathVariable Long id, @RequestBody User goalData) {
+        return userRepository.findById(id).map(user -> {
+            // Update kolom-kolom goal di tabel users
+            user.setDailyCalorieGoal(goalData.getDailyCalorieGoal());
+            user.setDailyProteinGoal(goalData.getDailyProteinGoal());
+            user.setDailyCarbsGoal(goalData.getDailyCarbsGoal());
+            user.setDailyFatGoal(goalData.getDailyFatGoal());
+            user.setDailySugarGoal(goalData.getDailySugarGoal());
+            
+            User updatedUser = userRepository.save(user);
+            return ResponseEntity.ok(updatedUser);
+        }).orElse(ResponseEntity.notFound().build());
+    }
+    
+    @PutMapping("/{id}/bodyData")
+    public ResponseEntity<User> updateBodyData(@PathVariable Long id, @RequestBody User bodyData) {
+        return userRepository.findById(id).map(user -> {
+            // Update kolom-kolom goal di tabel users
+            user.setDailyCalorieGoal(bodyData.getAge());
+            user.setDailyProteinGoal(bodyData.getHeight());
+            user.setDailyCarbsGoal(bodyData.getWeight());
+            
+            User updatedUser = userRepository.save(user);
+            return ResponseEntity.ok(updatedUser);
+        }).orElse(ResponseEntity.notFound().build());
+    }
+}

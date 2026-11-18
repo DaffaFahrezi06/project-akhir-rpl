@@ -1,0 +1,304 @@
+body {
+    display: flex; flex-direction: column; align-items: center;
+    background-color: #121212;
+    margin: 0;
+    padding: 0;
+}
+
+a, p, button {
+    color: #ffffff;
+    font-family: Helvetica;
+    font-weight: bold;
+}
+
+button { font-weight: bold; }
+
+.desktopDisable { display: none; }
+
+/* ---------- Navigation Bar ---------- */
+#Taskbar {
+    display: flex; flex-direction: row; justify-content: space-between;
+    background-color: #3B89FF;
+    width: clamp(1675px, 100vw, 100%); height: 100px;
+    position: fixed;
+    z-index: 1;
+}
+
+/* App Title Section */
+#AppTitle {
+    display: flex; flex-direction: row; align-items: center;
+    margin-left: clamp(175px, 10.5vw, 200px); margin-right: 20px;
+    gap: 20px;
+    font-weight: bold;
+}
+
+#AppTitle > img {
+    aspect-ratio: 1 / 1;
+    width: 60px;
+}
+
+#AppName > .main {
+    font-size: 40px;
+    margin: 0;
+}
+
+#AppName > .sub {
+    font-size: 15px;
+    margin: 0;
+}
+
+/* Menu Section */
+#Menu {
+    display: flex;  flex-direction: row; justify-content: center; align-items: center;
+    gap: 50px;
+    transition: all 250ms ease;
+}
+
+#Menu > a {
+    font-size: 30px; font-weight: bold; text-decoration: none;
+    transition: all 250ms ease;
+}
+
+/* Account & Notification Section */
+.Account {
+    width: 307px;
+    display: flex; flex-direction: row; align-items: center; justify-content: flex-end;
+    margin-left: 20px; margin-right: clamp(175px, 10.5vw, 200px);
+    gap: 40px;
+}
+
+.Account > #Notification { aspect-ratio: 1 / 1; }
+
+#Account {
+    width: 45px; aspect-ratio: 1 / 1;
+}
+
+#Notification { width: 40px; }
+
+/* Hover */
+#Menu > a:hover {
+    text-decoration: underline;
+    transform: scale(1.05);
+}
+
+/**/
+.app-container {
+    display: grid; grid-template-columns: repeat(2, 420px); grid-auto-rows: auto;
+    margin-top: 160px;
+}
+
+.app-container > div:not(.app-header) {
+    margin: 10px;
+}
+
+.app-header { 
+    grid-area: 1 / 1 / span 1 / span 2;
+    display: flex; justify-content: space-between; align-items: center; 
+}
+
+/**/
+.up-outbox {
+    grid-area: 2 / 1 / span 1 / span 2;
+    background-color: #1E1E1E; 
+    width: auto; 
+    border-radius: 15px; 
+    text-align: center; 
+    padding: 20px; padding-top: 0;
+    margin-bottom: 10px; 
+}
+
+.outbox-label {
+    margin-bottom: 15px; 
+    color: #fff;       
+    font-size: 40px;
+    margin-top: 10px;   
+}
+
+.up-inbox {
+    background-color: #383838; 
+    border-radius: 15px;
+    margin: 0; 
+    padding: 40px; 
+}
+
+.inbox-value {
+    color: white; font-size: 40px;
+    margin: 0;
+}
+
+.autoset-head {
+    grid-area: 3 / 1 / span 1 / span 1;
+    font-size: 30px; font-weight: bold;
+    margin-left: 10px; margin-top: 10px; margin-bottom: 10px;
+}
+
+.manualset-head {
+    grid-area: 3 / 2 / span 1 / span 1;
+    font-size: 30px; font-weight: bold;
+    margin-left: 10px; margin-top: 10px; margin-bottom: 10px;
+}
+
+/**/
+.input-auto {
+    grid-area: 4 / 1 / span 1 / span 1; grid-template-columns: repeat(2, 200px); grid-auto-rows: min-content;
+    display: grid; 
+    background-color: #1E1E1E;
+    width: auto;
+    border-radius: 15px;
+}
+
+.input-auto > .input-label {
+    grid-area: 1 / 1 / span 1 / span 2;
+}
+
+.input-auto .input-box {
+    width: auto;
+    background-color: #383838;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+    outline: none; 
+}
+
+#Age {
+    grid-area: 2 / 1 / span 1 / span 1;
+    margin-left: 20px; margin-right: 10px;
+}
+
+#Height {
+    grid-area: 2 / 2 / span 1 / span 1;
+    margin-left: 10px; margin-right: 20px;
+}
+
+#Weight {
+    grid-area: 3 / 1 / span 1 / span 1;
+    margin-left: 20px; margin-right: 10px;
+}
+
+#Gender {
+    grid-area: 3 / 2 / span 1 / span 1;
+    margin-left: 10px; margin-right: 20px;
+}
+
+#Activity {
+    grid-area: 4 / 1 / span 1 / span 1;
+    margin-left: 20px; margin-right: 10px;
+}
+
+#Goal {
+    grid-area: 4 / 2 / span 1 / span 1;
+    margin-left: 10px; margin-right: 20px;
+}
+
+.input-auto .btn-blue {
+    grid-area: 5 / 1 / span 1 / span 2;
+}
+
+.input-manual {
+    grid-area: 4 / 2 / span 1 / span 1;
+    display: flex; flex-direction: column; align-items: center; justify-content: space-between;
+    background-color: #1E1E1E;
+    width: auto;
+    height: min-content;
+    border-radius: 15px;
+}
+
+.input-label {
+    text-align: center; 
+    color: white;
+    margin-top: 15px ; margin-bottom: 5px;
+    font-size: 25px;
+}
+
+.input-group {
+    width: auto;            
+    display: flex; flex-direction: column; 
+}
+
+.input-group p {
+    color: #ffffff;
+    font-size: 20px;
+    margin-top: 8px; margin-bottom: 5px; margin-left: 10px;
+}
+
+.input-manual .input-box {
+    width: calc(100% - 70px);
+    background-color: #383838;
+    border: none;
+    padding: 12px;
+    margin-top: 25px;
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+    outline: none; 
+}
+
+.btn-blue {
+    width: 75%;
+    height: 45px;
+    padding: 12px;
+    background-color: #448AFF;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px; margin-bottom: 20px;
+    justify-self: center;
+}
+
+/* Account Info Popup */
+.popup {
+    background-color: #1E1E1E;
+    position: fixed; top: 110px; right: 10px;
+    display: flex; align-items: center; justify-content: center;
+    z-index: 2;
+    padding: 20px; 
+    display: none;
+    box-shadow: #121212 0px 4px 12px;
+}
+
+.popup.active {
+    display: flex;
+}
+
+.popup-content {
+    gap: 15px;
+    width: fit-content; height: fit-content;
+    display: flex; flex-direction: column; align-items: flex-start;
+    font-size: 15px; font-weight: bold;
+}
+
+.popup-content p {
+    margin: 0;
+}
+
+.profile-account {
+    grid-area: 1 / 1 / span 1 / span 2;
+    display: flex; align-items: center;
+    width: calc(90%);
+}
+
+.profile-pic {
+    width: 70px; aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background-size: cover; background-position: center;
+    margin-right: 15px;
+}
+
+.personal-detail {
+    display: grid;
+    grid-template-columns: repeat(2, 57%);
+    grid-template-rows: repeat(3, auto);
+    gap: 15px;
+}
+
+#Profile_Name { 
+    font-size: 15px; margin-top: 0; margin-bottom: 4px; 
+}
+
+#Profile_Email { 
+    font-size: 15px; color: #aaa; margin-bottom: 0;
+}

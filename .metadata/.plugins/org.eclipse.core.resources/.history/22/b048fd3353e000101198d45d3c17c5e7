@@ -1,0 +1,112 @@
+package com.example.calorietracker.model;
+
+import jakarta.persistence.*;
+import java.time.LocalDateTime;
+
+@Entity
+@Table(name = "food_entries")
+public class FoodEntry {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    
+    private Long userId;
+    private String foodName;
+    private Double amount;
+    private Double calories;
+    private Double carbs;
+    private Double fat;
+    private Double sugar;
+    private Double protein;
+    private LocalDateTime entryDate;
+
+    @PrePersist
+    protected void onCreate() {
+        this.entryDate = LocalDateTime.now();
+    }
+
+    // Getters
+    public Long getId() { 
+    	return id; 
+    }
+     
+    public Long getUserId() { 
+    	return userId; 
+    }
+    
+    public String getFoodName() {
+    	return foodName; 
+    }
+    
+    public Double getAmount() { 
+    	return amount;
+    }
+    
+    public Double getCalorie() { 
+    	return calories; 
+    }
+    
+    public Double getCarb() { 
+    	return carbs; 
+    }
+    
+    public Double getFat() { 
+    	return fat; 
+    } 
+    
+    public Double getSugar() { 
+    	return sugar; 
+    }
+    
+    public Double getProtein() { 
+    	return protein; 
+    }
+    
+    public LocalDateTime getEntryDate() { 
+    	return entryDate; 
+    }
+    
+    // Setters
+    public void setId(Long id) { 
+    	this.id = id; 
+    }
+    
+    public void setUserId(Long userId) { 
+    	this.userId = userId; 
+    }
+    
+    public void setFoodName(String foodName) { 
+    	this.foodName = foodName; 
+    }
+    
+    
+    public void setAmount(Double amount) { 
+    	this.amount = amount; 
+    }
+    
+    public void setCalorie(Double calorie) { 
+    	this.calories = calorie; 
+    }
+    
+    public void setCarb(Double carb) { 
+    	this.carbs = carb; 
+    }
+    
+    public void setFat(Double fat) { 
+    	this.fat = fat; 
+    }
+    
+    public void setSugar(Double sugar) { 
+    	this.sugar = sugar; 
+    }
+    
+    public void setProtein(Double protein) { 
+    	this.protein = protein; 
+    }
+    
+    public void setEntryDate(LocalDateTime entryDate) {
+    	this.entryDate = entryDate; 
+    }
+    
+    
+}

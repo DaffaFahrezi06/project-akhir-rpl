@@ -1,0 +1,148 @@
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+
+body { 
+    background-color: #121212; 
+    color: white; 
+    display: flex; justify-content: center; 
+    min-height: 100vh; 
+}
+
+a, p, button {
+    color: #ffffff; 
+    font-family: Helvetica;  font-weight: bold;
+}
+
+.desktopDisable > p {
+    align-self: flex-start;
+}
+
+/* Hide Desktop-Only Elements */
+#AppTitle, .Account,
+#Menu > .text, .mobileDisable {
+    display: none;
+}
+
+/* ---------- Navigation Bar ---------- */
+#Taskbar {
+    display: flex; flex-direction: row; align-items: center; justify-content: space-evenly;
+    width: clamp(360px, 100vw, 100%); height: 60px;
+    background-color: #3B89FF;
+    position: fixed;
+    bottom: 0;
+    z-index: 1;
+}
+
+#Menu {
+    display: flex; flex-direction: row; justify-content: space-evenly;
+    width: 100%;
+}
+
+#Menu > a > img {
+    width: 32.5px; aspect-ratio: 1 / 1;
+}
+       
+/**/  
+.app-container {
+    width: 90vw; max-width: 480px; background-color: #121212;
+    position: relative; padding-bottom: 80px; overflow: hidden;
+}
+
+.app-header { 
+    display: flex; justify-content: space-between; align-items: center; 
+    font-size: 30px;
+    margin-top: 15px; margin-bottom: 15px;  
+}
+
+.fa-bell { font-size: 1.5rem; color: #fff; cursor: pointer;}
+
+.card-container {
+    background-color: #1E1E1E; margin: 10px 0; padding: 20px;
+    border-radius: 15px; border: 1px solid #333;
+}
+
+.profile-section { 
+    display: flex; align-items: center; 
+    margin-bottom: 20px; 
+    gap: 15px; }
+
+.profile-account {
+    display: flex; align-items: center;
+}
+
+.profile-pic {
+    width: 50px; height: 50px; 
+    border-radius: 50%;
+    background-size: cover; background-position: center;
+    margin-right: 15px;
+}
+
+#Profile_Name { 
+    font-size: 1.1rem; 
+    margin-top: 0; margin-bottom: 4px; 
+}
+
+#Profile_Email { 
+    color: #aaa; font-size: 0.8rem;
+    margin-bottom: 0;
+}
+
+.menu-item {
+    display: flex; align-items: center; justify-content: center;
+    height: 45px; background-color: #383838; margin-bottom: 10px;
+    border-radius: 8px; cursor: pointer; transition: 0.2s;
+    color: white; font-weight: bold; font-family: Helvetica;
+}
+
+.section-title { 
+    font-size: 1rem; 
+    margin-top: 20px; margin-bottom: 10px; 
+}
+
+.btn-logout {
+    width: 100%; 
+    padding: 12px; margin-top: 20px;
+    background-color: #D32F2F; 
+    color: white; font-weight: bold; font-size: 1rem; 
+    border: none; border-radius: 8px; 
+    cursor: pointer;
+}
+
+/* ----- Pop Up ----- */
+.popup {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 2;
+    display: none;
+}
+
+.popup-content {
+    background-color: #1E1E1E;
+    padding: 30px; gap: 30px;
+    border-radius: 15px; box-shadow: #121212 0px 4px 12px;
+    width: 90%; height: fit-content;
+    display: flex; flex-direction: column; align-items: center;
+    font-size: 1.3rem;
+}
+
+.popup-content p { margin: 0; }
+
+.popup-input {
+    width: 100%;
+    padding: 12px;
+    border: none; border-radius: 8px; outline: none;
+    background-color: #383838;
+    color: white; font-size: 1rem;
+}
+
+.btn-cancel, .btn-confirm {
+    width: 100px; height: 35px;
+    margin-left: 10px; margin-right: 10px;
+    border: none; border-radius: 8px; font-weight: bold; font-size: 1rem; cursor: pointer;
+}
+
+.btn-confirm { background-color: #3B89FF; color: white; }
+.btn-cancel { background-color: #D32F2F; color: white; }
+
+.btn-confirm:active { background-color: #3b89ff6e; }
+.btn-cancel:active { background-color: #d32f2f6e; }

@@ -1,0 +1,13 @@
+package com.example.calorietracker.repository;
+
+import com.example.calorietracker.model.FoodEntry;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+import java.util.List;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+@Repository
+public interface FoodEntryRepository extends JpaRepository<FoodEntry, Long> {
+    List<FoodEntry> findByUserIdAndEntryDateDaily(Long userId, LocalDateTime start, LocalDateTime end);
+}

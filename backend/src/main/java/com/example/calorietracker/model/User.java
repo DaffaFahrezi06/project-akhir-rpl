@@ -1,0 +1,259 @@
+package com.example.calorietracker.model;
+
+import jakarta.persistence.*;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import java.time.LocalDateTime;
+
+@Entity
+@Table(name="users")
+@EntityListeners(AuditingEntityListener.class)
+public class User {
+
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private Long id;
+    
+    @Column(name="username", nullable=false, unique=false)
+    private String username;
+
+    @Column(unique=true)
+    private String email;
+
+    private String password;
+
+    @CreatedDate
+    @Column(name = "created_at", nullable = false, updatable = false)
+    private LocalDateTime createdAt;
+
+    @LastModifiedDate
+    @Column(name = "updated_at", nullable = false) 
+    private LocalDateTime updatedAt;
+
+    @PrePersist
+    protected void onCreate() {
+        this.createdAt = LocalDateTime.now();
+    }
+
+    @Column(name="daily_calorie_goal")
+    private Integer dailyCalorieGoal;
+    
+    @Column(name="daily_carbs_goal")
+    private Integer dailyCarbsGoal;
+    
+    @Column(name="daily_fat_goal")
+    private Integer dailyFatGoal;
+    
+    @Column(name="daily_sugar_goal")
+    private Integer dailySugarGoal;
+    
+    @Column(name="daily_protein_goal")
+    private Integer dailyProteinGoal;
+
+    @Column(name="daily_hydration_goal")
+    private Integer dailyHydrationGoal;
+
+    private Integer age;
+    private Integer height;
+    private Integer weight;
+    public enum Gender {
+        MALE,
+        FEMALE
+    }
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
+    
+    public enum ActivityLevel {
+        SEDENTARY,
+        LIGHTLY_ACTIVE,
+        MODERATELY_ACTIVE,
+        VERY_ACTIVE,
+        EXTRA_ACTIVE
+    }
+    @Enumerated(EnumType.STRING)
+    @Column(name="activity_level")
+    private ActivityLevel activityLevel;
+    
+    public enum Goal {
+        LOSE_WEIGHT,
+        MAINTAIN_WEIGHT,
+        GAIN_WEIGHT
+    }
+    @Enumerated(EnumType.STRING)
+    private Goal goal;
+
+    @Column(name="input_notification")
+    private Boolean inputNotification = true;
+    @Column(name="reminder_notification")
+    private Boolean reminderNotification = true;
+    @Column(name="dark_mode")
+    private Boolean darkMode = true;
+    
+    // --- getters ---
+    public Long getId() { 
+    	return id; 
+    }
+    
+    public String getUsername() { 
+    	return username; 
+    }
+    
+    public String getEmail() { 
+    	return email; 
+    }
+    public String getPassword() { 
+    	return password; 
+    }
+    
+    public LocalDateTime getCreatedAt() { 
+    	return createdAt; 
+    }
+
+    public Integer getDailyCalorieGoal() {
+    	return dailyCalorieGoal; 
+    }
+    
+    public Integer getDailyCarbsGoal() {
+    	return dailyCarbsGoal; 
+    }
+    
+    public Integer getDailyFatGoal() {
+    	return dailyFatGoal; 
+    }
+    
+    public Integer getDailySugarGoal() {
+    	return dailySugarGoal; 
+    }
+    
+    public Integer getDailyProteinGoal() {
+    	return dailyProteinGoal; 
+    }
+
+    public Integer getDailyHydrationGoal() {
+        return dailyHydrationGoal;
+    }
+
+    public Integer getAge() {
+    	return age; 
+    }
+
+    public Integer getHeight() {
+    	return height; 
+    }
+    
+    public Integer getWeight() {
+    	return weight; 
+    } 
+    
+    public Gender getGender() {
+        return gender;
+    }
+    
+    public ActivityLevel getActivityLevel() {
+        return activityLevel;
+    }
+    
+    public Goal getGoal() {
+        return goal;
+    }
+
+    public Boolean isInputNotification() {
+        return inputNotification;
+    }
+
+    public Boolean isReminderNotification() {
+        return reminderNotification;
+    }
+
+    public Boolean isDarkMode() {
+        return darkMode;
+    }
+    
+
+    // --- setters ---
+    public void setId(Long id) { 
+    	this.id = id; 
+    }
+    
+    public void setUsername(String username) { 
+    	this.username = username; 
+    }
+    
+    public void setEmail(String email) { 
+    	this.email = email; 
+    }
+    
+    public void setPassword(String password) { 
+    	this.password = password; 
+    }
+    
+    public void setCreatedAt(LocalDateTime createdAt) { 
+    	this.createdAt = createdAt; 
+    }
+    
+    public void setUpdatedAt(LocalDateTime updatedAt) { 
+    	this.updatedAt = updatedAt; 
+    }
+    
+    public void setDailyCalorieGoal(Integer dailyCalorieGoal) {
+        this.dailyCalorieGoal = dailyCalorieGoal;
+    }
+
+    public void setDailyCarbsGoal(Integer dailyCarbsGoal) {
+        this.dailyCarbsGoal = dailyCarbsGoal;
+    }
+
+    public void setDailyFatGoal(Integer dailyFatGoal) {
+        this.dailyFatGoal = dailyFatGoal;
+    }
+
+    public void setDailySugarGoal(Integer dailySugarGoal) {
+        this.dailySugarGoal = dailySugarGoal;
+    }
+
+    public void setDailyProteinGoal(Integer dailyProteinGoal) {
+        this.dailyProteinGoal = dailyProteinGoal;
+    }
+
+    public void setDailyHydrationGoal(Integer dailyHydrationGoal) {
+        this.dailyHydrationGoal = dailyHydrationGoal;
+    }
+    
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+    
+    public void setHeight(Integer height) {
+        this.height = height;
+    }
+    
+    public void setWeight(Integer weight) {
+        this.weight = weight;
+    }
+    
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
+    
+    public void setActivityLevel(ActivityLevel activityLevel) {
+        this.activityLevel = activityLevel;
+    }
+    
+    public void setGoal(Goal goal) {
+        this.goal = goal;
+    }
+
+    public void setInputNotification(Boolean inputNotification) {
+        this.inputNotification = inputNotification;
+    }
+
+    public void setReminderNotification(Boolean reminderNotification) {
+        this.reminderNotification = reminderNotification;
+    }
+
+    public void setDarkMode(Boolean darkMode) {
+        this.darkMode = darkMode;
+    }
+
+}

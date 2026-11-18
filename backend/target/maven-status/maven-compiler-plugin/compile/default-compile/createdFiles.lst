@@ -1,0 +1,14 @@
+com\example\calorietracker\model\User$Gender.class
+com\example\calorietracker\controller\AuthController.class
+com\example\calorietracker\dto\RegisterRequest.class
+com\example\calorietracker\model\User$ActivityLevel.class
+com\example\calorietracker\dto\LoginRequest.class
+com\example\calorietracker\model\FoodEntry.class
+com\example\calorietracker\config\SecurityConfig.class
+com\example\calorietracker\model\User$Goal.class
+com\example\calorietracker\CalorieTrackerApplication.class
+com\example\calorietracker\controller\FoodEntryController.class
+com\example\calorietracker\repository\UserRepository.class
+com\example\calorietracker\model\User.class
+com\example\calorietracker\repository\FoodEntryRepository.class
+com\example\calorietracker\controller\UserController.class

@@ -1,0 +1,35 @@
+package com.example.calorietracker.controller;
+
+import com.example.calorietracker.model.User;
+import com.example.calorietracker.repository.UserRepository;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import java.util.Optional;
+
+@RestController 
+@RequestMapping("/api/auth") 
+@CrossOrigin("*")
+public class AuthController {
+ private final UserRepository repo;
+ private final BCryptPasswordEncoder enc=new BCryptPasswordEncoder();
+ 
+ public AuthController(UserRepository r){this.repo=r;}
+ 
+ @PostMapping("/register")
+ public User register(@RequestBody User u){
+  u.setPassword(enc.encode(u.getPassword()));
+  User saved = repo.save(u);
+  saved.setPassword(null);
+  return saved;
+ }
+ 
+ @PostMapping("/login")
+ public User login(@RequestBody User r){
+  Optional<User> u=repo.findByEmail(r.getEmail());
+  if(u.isPresent() && enc.matches(r.getPassword(),u.get().getPassword())){
+   u.get().setPassword(null);
+   return u.get();
+  }
+  throw new RuntimeException("Invalid login");
+ }
+}

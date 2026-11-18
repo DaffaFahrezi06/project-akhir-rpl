@@ -1,0 +1,23 @@
+
+package com.example.calorietracker.model;
+import jakarta.persistence.*;
+import java.time.LocalDate;
+@Entity
+public class CalorieLog {
+ @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+ private Long id;
+ private Long userId;
+ private String foodName;
+ private int calories;
+ private LocalDate date;
+ public Long getId(){return id;}
+ public Long getUserId(){return userId;}
+ public String getFoodName(){return foodName;}
+ public int getCalories(){return calories;}
+ public LocalDate getDate(){return date;}
+ public void setId(Long id){this.id=id;}
+ public void setUserId(Long u){this.userId=u;}
+ public void setFoodName(String f){this.foodName=f;}
+ public void setCalories(int c){this.calories=c;}
+ public void setDate(LocalDate d){this.date=d;}
+}

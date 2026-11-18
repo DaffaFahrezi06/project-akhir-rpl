@@ -1,0 +1,105 @@
+body {
+    background-color: #121212;
+    background-image: url("../Image/Food1.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: 50% 0%
+}
+
+.desktop-disable { display: none; }
+
+#Signup {
+    background-color: #121212;
+    top: 0; right: 0;
+    width: 43%; height: 100%;
+    position: fixed;
+    padding: 1%;
+    display: flex; flex-direction: column; align-items: center; justify-content: space-around;
+}
+
+#Remember {
+    width: 33.7vw;
+    display: flex; flex: row; justify-content: flex-start; align-items: baseline;
+    color: #ffffff; font-size: 1vw;
+    padding-left: 5%;
+}
+
+#RememberCheck {
+    appearance: none;
+    width: 1vw; height: 1vw;
+    border: solid 0.15vw #3B89FF; border-radius: 0.2vw;
+    accent-color: #3B89FF;
+    cursor: pointer;
+}
+
+#RememberCheck:active {
+    background-color: #3B89FF;
+}
+
+p, #RememberMe, #Login {
+    color: #8E8E8E; font-family: Helvetica;
+}
+
+#TitleText {
+    color: #ffffff; font-size: 2.6vw ; font-weight: bolder;
+}
+
+input[type="text"], input[type="password"] {
+    width: 33.7vw; height: 50px;
+    padding: 12px 20px; margin: 8px 0;
+    box-sizing: border-box;
+    border: none; border-radius: 10px;
+    background-color: #1D1D1D;
+    color: #ffffff; font-size: 1.2vw ;
+}
+
+#Line {
+   width: 38vw;
+}
+
+button {
+    width: 30.7vw; height: 60px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none; border-radius: 20px;
+    font-size: 1vw ; font-weight: bolder;
+}
+
+#Manual {
+    background-color: #3B89FF;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+#Google {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+#Manual:active {
+    background-color: #3b89ffce;
+    color: #ffffffce;
+}
+
+#Google:active {
+    background-color: #ffffffce;
+}
+
+#Textbar  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+::placeholder{
+    color: #5B5B5B;
+}
+
+#Login a, #Login a:visited{
+    color: #5B5B5B;; font-size: 25px; text-decoration: none;
+}
+
+#registerForm {
+    display: flex; flex-direction: column; align-items: center;
+}

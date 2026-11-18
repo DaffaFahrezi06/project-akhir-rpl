@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tab Insight</title>
+    <link rel="stylesheet" href="../CSS/insight-desktop.css" media="screen and (min-width: 577px)">
+    <link rel="stylesheet" href="../CSS/insight-mobile.css" media="screen and (max-width: 576px)">
+</head>
+<body>
+    <!--Navbar-->
+    <div id="Taskbar">
+
+        <!--App Title-->
+        <div id="AppTitle">
+            <img src="../Elements/LogoPlaceholder.png" alt="">
+            <div id="AppName">
+                <p class="main">CalorieMate</p>
+                <p class="sub">Hello, <span class="username"></span></p>
+            </div>
+        </div>
+
+        <!--Menu-->
+        <div id="Menu">
+            <a href="home.html" class="text mobileDisable">Home</a>
+            <a href="set_calorie.html" class="text mobileDisable">Limit</a>
+            <a href="insight.html" class="text mobileDisable">Insight</a>
+            <a href="setting.html" class="text mobileDisable">Setting</a>
+            <a href="home.html" class="image desktopDisable"><img src="../Elements/Home.png" alt=""></a>
+            <a href="set_calorie.html" class="image desktopDisable"><img src="../Elements/Limit.png" alt=""></a>
+            <a href="insight.html" class="image desktopDisable"><img src="../Elements/Insight.png" alt=""></a>
+            <a href="setting.html" class="image desktopDisable"><img src="../Elements/Setting.png" alt=""></a>
+        </div>
+
+        <!--Account & Notification Section-->
+        <div class="Account">
+            <img src="../Elements/Profile2.png" alt="" class="toggle" id="Account" onclick="toggleInfo()">
+            <!--
+            <img src="../Elements/Bell.png" alt="" id="Notification">
+            -->
+        </div>
+    </div>
+
+    <div class="app-container">
+        
+        <div class="app-header">
+            <p>Insight</p>
+            <img class="desktopDisable toggle" src="../Elements/Profile2.png" alt="" style="width: 27px; height: 27px;" onclick="toggleInfo()">
+        </div>
+
+                <div class="stats-box" id="Daily">
+                    <p class="stats-label">Calorie Today</a>
+                    <p class="stats-value">
+                        <span id="cal-today">0</span> Cal
+                    </p>
+                </div>
+                <div class="stats-box" id="Weekly">
+                    <p class="stats-label">Calorie Weekly</p>
+                    <p class="stats-value">
+                        <span id="cal-weekly">0</span> Cal
+                    </p>
+                </div>
+
+
+            <div class="graph-container">
+                <p>Weekly Graph</p>
+                <div class="chartContainer">
+                    <canvas id="WeeklyChart"></canvas>
+                </div>
+            </div>
+
+            <div class="history-set">
+                <p>History</p>
+                <hr>
+                <div class="history-list"></div>
+            </div>
+    </div>
+
+    <!-- Account Info Popup -->
+    <div class="popup" id="Account_Info">
+        <div class="popup-content">
+            <div class="profile-account">
+                <div class="profile-pic" id="id-profile-pic"></div> 
+                <div class="profile-info">
+                    <p id="Profile_Name">username</p>
+                    <p id="Profile_Email">email@email.com</p>
+                </div>
+            </div>
+            <div class="personal-detail">
+                <p style="grid-column: 1 / 1; grid-row: 1 / 1;">Age : <span id="Profile_Age">N/A</span></p>
+                <p style="grid-column: 2 / 2; grid-row: 1 / 1;">height : <span id="Profile_Height">N/A</span> CM</p>
+                <p style="grid-column: 2 / 2; grid-row: 2 / 2;">Weight : <span id="Profile_Weight">N/A</span> Kg</p>
+                <p style="grid-column: 1 / 1; grid-row: 2 / 2;">Gender : <span id="Profile_Gender" >Male</span></p>
+                <p style="grid-area: 3 / 1 / span 1 / span 2;"> <span id="Profile_ActivityLevel">N/A</span> & <span id="Profile_Goal">N/A</span></p>
+            </div>
+        </div>
+    </div>
+
+    <!--javaScript-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../JavaScript/config.js"></script>
+    <script src="../JavaScript/dom.js"></script>
+    <script src="../JavaScript/data.js"></script>
+    <script src="../JavaScript/profile.js"></script>
+    <script src="../JavaScript/charts2.js"></script>
+    <script src="../JavaScript/accountInfo.js"></script>
+</body>
+</html>

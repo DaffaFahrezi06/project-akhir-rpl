@@ -1,0 +1,19 @@
+
+package com.example.calorietracker.model;
+import jakarta.persistence.*;
+@Entity @Table(name="users")
+public class User {
+ @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+ private Long id;
+ private String username;
+ @Column(unique=true) private String email;
+ private String password;
+ public Long getId(){return id;}
+ public String getUsername(){return username;}
+ public String getEmail(){return email;}
+ public String getPassword(){return password;}
+ public void setId(Long id){this.id=id;}
+ public void setUsername(String u){this.username=u;}
+ public void setEmail(String e){this.email=e;}
+ public void setPassword(String p){this.password=p;}
+}
